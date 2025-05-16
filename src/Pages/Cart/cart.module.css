@@ -1,0 +1,136 @@
+.main {
+  min-height: 80vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.container {
+  background: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  max-width: 700px;
+  width: 100%;
+}
+
+.title {
+  font-size: 2rem;
+  color: #2d3748;
+  margin-bottom: 0.7rem;
+  font-weight: 700;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: #4a5568;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.productList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.productCard {
+  background: #f1f5f9;
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 1.2rem 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  transition: transform 0.15s, box-shadow 0.15s;
+  gap: 1.5rem;
+}
+
+.productImage {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 0.7rem;
+  margin-bottom: 0.7rem;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  display: block;
+}
+
+.productData {
+  display: flex;
+  flex-direction: column;
+}
+
+.productCard h4 {
+  font-size: 1.1rem;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.productCard span {
+  font-size: 1rem;
+  color: #2563eb;
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+}
+
+.removeButton {
+  padding: 0.5rem 1.1rem;
+  background: #fff;
+  color: #dc2626;
+  border: 1.5px solid #dc2626;
+  border-radius: 0.6rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+  width: 300px;
+}
+
+.removeButton:hover,
+.removeButton:focus {
+  background: #dc2626;
+  color: #fff;
+  outline: none;
+  transform: scale(1.04);
+}
+
+.total {
+  margin: 2rem 0 1rem 0;
+  text-align: right;
+}
+
+.total h2 {
+  font-size: 1.3rem;
+  color: #2d3748;
+  font-weight: 700;
+}
+
+.button {
+  display: block;
+  margin-left: auto;
+  padding: 0.8rem 2.2rem;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(37,99,235,0.08);
+}
+
+.button:hover,
+.button:focus {
+  background: #1e40af;
+  transform: translateY(-2px) scale(1.03);
+  outline: none;
+}

@@ -1,0 +1,146 @@
+/* --- Estilização do .Header --- */
+.Header {
+  width: 100%;
+  max-width: 100%;
+  padding: 1rem 2rem;
+  margin: 0 ;
+  background: linear-gradient(135deg, #1c3cce, #70b6ef);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  box-shadow: 0 4px 8px rgba(28, 60, 206, 0.4);
+  border-bottom: 3px solid #ffffff30;
+  flex-wrap: wrap;
+  animation: slideDown 0.8s ease forwards;
+}
+@keyframes slideDown {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* --- Div de Logos --- */
+.DivLogo {
+  display: flex;
+  gap: 1rem;
+}
+
+.logo {
+  height: 3rem;
+  padding: 0.5rem;
+  will-change: filter;
+  transition: transform 0.4s, filter 0.4s;
+  border-radius: 50%;
+  background: #ffffff15;
+}
+.logo:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 1rem #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 1rem #61dafbaa);
+}
+
+/* --- Animação do React Logo --- */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .DivLogo .react {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* --- Título --- */
+.TitlePage {
+  flex: 1;
+  text-align: center;
+  font-size: 2rem;
+  color: #f9f9f9;
+  font-weight: bold;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Navegação --- */
+.nav {
+  display: flex;
+}
+
+.NavPages {
+  margin: 0 0.3rem;
+  padding: 0.5rem 0.8rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: #70b6ef;
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.NavPages:hover {
+  background: #a1e3f9;
+  color: #3674b5;
+  border: 2px solid #3674b5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.5);
+}
+
+/* --- Responsivo --- */
+@media (max-width: 768px) {
+  .Header {
+    display: grid;
+    justify-content: space-around;
+
+    grid-template-areas:
+      "logo  nav"
+      "title title";
+  }
+
+  .DivLogo {
+    grid-area: logo;
+  }
+  .logo {
+    height: 2rem;
+  }
+
+  .TitlePage {
+    grid-area: title;
+    font-size: 1.5rem;
+  }
+
+  .nav  {
+    grid-area: nav;
+  }
+}
+
+@media (max-width: 480px) {
+  .Header {
+    grid-template-areas:
+      "logo nav"
+      "title title";
+  }
+
+  .logo {
+    height: 1.5rem;
+  }
+
+  .TitlePage {
+    font-size: 1.5rem;
+  }
+
+  .nav {
+    font-size: 1rem;
+  }
+}
