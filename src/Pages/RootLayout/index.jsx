@@ -16,9 +16,7 @@ export default function RootLayout() {
       />
 
       <main>
-        <hr />
         <Outlet />
-        <hr />
       </main>
 
       <Footer />
