@@ -1,0 +1,75 @@
+.contentTable {
+  background: #141414;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  max-height: 400px;
+  overflow: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  display: block;
+}
+
+.thead {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.thead th {
+  position: sticky;
+  top: 0;
+  background-color: #141414;
+  color: #ffffffcc;
+  padding: 1rem 0.5rem;
+  font-weight: 600;
+  text-align: left;
+  z-index: 1;
+  border-bottom: 1px solid #333;
+}
+
+.tbody {
+  display: block;
+  max-height: 300px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+/* Linhas do corpo com estrutura de tabela */
+.tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* Células */
+.table td {
+  color: #eaeaea;
+  padding: 1rem 0.5rem;
+  border-bottom: 1px solid #222;
+  text-align: left;
+}
+
+.button {
+  padding: 0.4rem 1rem;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.12);
+}
+
+.button:hover,
+.button:focus {
+  background: #1e40af;
+  transform: translateY(-2px) scale(1.03);
+  outline: none;
+}
