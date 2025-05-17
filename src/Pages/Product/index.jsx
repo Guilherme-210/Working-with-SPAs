@@ -1,17 +1,12 @@
-import { Link, useParams } from "react-router-dom"
-import Products from "../../database.js"
+import { Link, useLoaderData } from "react-router-dom"
 import styles from "./product.module.css"
 
 export default function Product() {
-  const { productId } = useParams()
-
-  const product = Products.find((p) => p.id === +productId)
-  // O sinal "+" antes do "productId" e usado com o mesmo objetivo que o nunber() e o parseFloat()
-
-  if (!product) {
-    return <h2>Oops... Produto não foi encontrado (error: 404 Not Found)</h2>
-  }
+  const product = useLoaderData()  
   
+  // throw new Error("error qualquer");
+  
+
   return (
     <>
       <div className={styles.container}>

@@ -16,9 +16,9 @@ export default function RootLayout() {
       />
 
       <main>
-        <p>Esse e o layout principal da pagina</p>
         <hr />
         <Outlet />
+        <hr />
       </main>
 
       <Footer />
