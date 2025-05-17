@@ -1,42 +1,6 @@
 import styles from "./Table.module.css"
+import products from "../../database"
 
-const products = [
-  {
-    id: 1,
-    name: "7 Wonders",
-    category: "Tabuleiro",
-    price: 199.9,
-    quantity: 11,
-  },
-  {
-    id: 2,
-    name: "O Senhor dos Anéis: Card Game",
-    category: "Cartas",
-    price: 149.99,
-    quantity: 40,
-  },
-  {
-    id: 3,
-    name: "Catan",
-    category: "Tabuleiro",
-    price: 229.0,
-    quantity: 3,
-  },
-  {
-    id: 4,
-    name: "Dixit",
-    category: "Família",
-    price: 169.5,
-    quantity: 8,
-  },
-  {
-    id: 5,
-    name: "Uno",
-    category: "Cartas",
-    price: 29.9,
-    quantity: 20,
-  },
-]
 
 export default function TableFilter() {
   return (

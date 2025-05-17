@@ -1,95 +1,114 @@
-import IntelCoreI9 from "./assets/products/ProcessadorIntelCore-i9-11900K.webp"
-import AmdRyzen9 from "./assets/products/ProcessadorAMDRyzen9-5950X.jpg"
-import MemoriaCorsair from "./assets/products/Memória Corsair Vengeance LPX 32GB (2 x 16GB) DDR4-3200.webp"
-import MemoriaCrucial from "./assets/products/Memoria Crucial Ballistix 16GB (2 X 8GB) DDR4-3600.jpg"
-import PlacaMãeASUS from "./assets/products/Placa-mãe ASUS ROG Strix B550-F Gaming.jpeg"
-import PlacaDeVídeoNVIDIA from "./assets/products/Placa de vídeo NVIDIA GeForce RTX 3060 Ti.webp"
-import FonteCorsair from "./assets/products/Fonte Corsair RM750x 750W 80 Plus Gold.jpeg"
-import SsdSamsung980 from "./assets/products/SSD Samsung 980 PRO 1TB NVMe.jpeg"
-import GabineteNZXT from "./assets/products/Gabinete NZXT H510.jpeg"
-import CoolerMaster from "./assets/products/Cooler Master Hyper 212 Black Edition.jpg"
+import Wonders from "./assets/products/Wonders.jpg"
+import SenhorDosAnéis from "./assets/products/SenhorDosAnéis.jpeg"
+import Catan from "./assets/products/Catan.jpeg"
+import Dixit from "./assets/products/Dixit.jpeg"
+import Uno from "./assets/products/Uno.jpeg"
+import TicketToRide from "./assets/products/TicketToRide.jpeg"
+import Carcassonne from "./assets/products/Carcassonne.jpeg"
+import ExplodingKittens from "./assets/products/ExplodingKittens.jpeg"
+import TerraformingMars from "./assets/products/TerraformingMars.jpeg"
+import Dominion from "./assets/products/Dominion.jpeg"
 
-const ProductsDatabase = [
+const products = [
   {
     id: 1,
-    name: "Processador Intel Core i9-11900K",
+    name: "7 Wonders",
+    category: "Tabuleiro",
+    price: 199.9,
+    quantity: 11,
     description:
-      "O Intel Core i9-11900K é um processador de alto desempenho com 8 núcleos e 16 threads. Ele possui uma frequência base de 3.5GHz e pode alcançar até 5.3GHz com a tecnologia Intel Turbo Boost Max 3.0.",
-    price: 499.99,
-    image: IntelCoreI9,
+      "Um jogo de estratégia onde você lidera uma civilização antiga rumo à glória.",
+    image: Wonders,
   },
   {
     id: 2,
-    name: "Processador AMD Ryzen 9 5950X",
+    name: "O Senhor dos Anéis: Card Game",
+    category: "Cartas",
+    price: 149.99,
+    quantity: 40,
     description:
-      "O AMD Ryzen 9 5950X é um processador topo de linha com 16 núcleos e 32 threads, ideal para tarefas exigentes. Sua frequência base é de 3.4GHz e pode chegar a até 4.9GHz.",
-    price: 749.99,
-    image: AmdRyzen9,
+      "Jogo cooperativo de cartas baseado no universo de Tolkien. Prepare-se para a aventura!",
+    image: SenhorDosAnéis,
   },
   {
     id: 3,
-    name: "Memória Corsair Vengeance LPX 32GB (2 x 16GB) DDR4-3200",
+    name: "Catan",
+    category: "Tabuleiro",
+    price: 229.0,
+    quantity: 3,
     description:
-      "A Corsair Vengeance LPX é um kit de memória de alto desempenho ideal para jogos e criação de conteúdo. Inclui dois módulos de 16GB DDR4 operando a 3200MHz.",
-    price: 159.99,
-    image: MemoriaCorsair,
+      "Conquiste territórios, negocie recursos e domine a ilha de Catan.",
+    image: Catan,
   },
   {
     id: 4,
-    name: "Memória Crucial Ballistix 16GB (2 X 8GB) DDR4-3600",
+    name: "Dixit",
+    category: "Família",
+    price: 169.5,
+    quantity: 8,
     description:
-      "A Crucial Ballistix é uma memória premium para aplicações exigentes, como games e edição de vídeo. São quatro módulos de 16GB DDR4 rodando a 3600MHz.",
-    price: 189.99,
-    image: MemoriaCrucial,
+      "Use sua imaginação para interpretar imagens oníricas e vencer com criatividade.",
+    image: Dixit,
   },
   {
     id: 5,
-    name: "Placa-mãe ASUS ROG Strix B550-F Gaming",
-    description:
-      "A ROG Strix B550-F é uma placa-mãe confiável com suporte a processadores AMD Ryzen, PCIe 4.0, Wi-Fi 6 e áudio de alta definição.",
-    price: 199.9,
-    image: PlacaMãeASUS,
+    name: "Uno",
+    category: "Cartas",
+    price: 29.9,
+    quantity: 20,
+    description: "O clássico jogo de cartas que destrói amizades em segundos.",
+    image: Uno,
   },
   {
     id: 6,
-    name: "Placa de vídeo NVIDIA GeForce RTX 3060 Ti",
+    name: "Ticket to Ride",
+    category: "Tabuleiro",
+    price: 219.99,
+    quantity: 12,
     description:
-      "A RTX 3060 Ti oferece excelente desempenho gráfico para jogos em 1080p e 1440p, com suporte a Ray Tracing e DLSS da NVIDIA.",
-    price: 399.99,
-    image: PlacaDeVídeoNVIDIA,
+      "Construa rotas ferroviárias e domine o mapa com suas estratégias logísticas.",
+    image: TicketToRide,
   },
   {
     id: 7,
-    name: "Fonte Corsair RM750x 750W 80 Plus Gold",
+    name: "Carcassonne",
+    category: "Tabuleiro",
+    price: 129.9,
+    quantity: 9,
     description:
-      "A RM750x é uma fonte modular com certificação 80 Plus Gold, garantindo alta eficiência energética e operação silenciosa.",
-    price: 139.99,
-    image: FonteCorsair,
+      "Coloque peças, conquiste territórios e controle a cidade medieval de Carcassonne.",
+    image: Carcassonne,
   },
   {
     id: 8,
-    name: "SSD Samsung 980 PRO 1TB NVMe",
+    name: "Exploding Kittens",
+    category: "Cartas",
+    price: 89.99,
+    quantity: 15,
     description:
-      "O Samsung 980 PRO é um SSD de alto desempenho com tecnologia NVMe PCIe 4.0, oferecendo velocidades de leitura e gravação ultrarrápidas.",
-    price: 189.99,
-    image: SsdSamsung980,
+      "Jogo de cartas caótico com gatinhos explosivos e muita zoeira.",
+    image: ExplodingKittens,
   },
   {
     id: 9,
-    name: "Gabinete NZXT H510",
+    name: "Terraforming Mars",
+    category: "Estratégia",
+    price: 289.0,
+    quantity: 5,
     description:
-      "O NZXT H510 é um gabinete moderno e minimalista com ótimo fluxo de ar, lateral em vidro temperado e espaço para organização de cabos.",
-    price: 99.99,
-    image: GabineteNZXT,
+      "Gerencie corporações e transforme Marte num novo lar para a humanidade.",
+    image: TerraformingMars,
   },
   {
     id: 10,
-    name: "Cooler Master Hyper 212 Black Edition",
+    name: "Dominion",
+    category: "Deck Building",
+    price: 179.9,
+    quantity: 6,
     description:
-      "O Hyper 212 é um cooler a ar eficiente para processadores, com design preto fosco, baixo ruído e excelente dissipação térmica.",
-    price: 49.9,
-    image: CoolerMaster,
+      "Crie o baralho perfeito em um jogo de construção de deck inovador e estratégico.",
+    image: Dominion,
   },
 ]
 
-export default ProductsDatabase
+export default products
