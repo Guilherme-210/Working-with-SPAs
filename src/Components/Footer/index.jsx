@@ -19,7 +19,7 @@ export default function Footer() {
           </a>
           <a
             className={styles.link}
-            href="https://github.com/Guilherme-210/learn-react-with-vite.git"
+            href="https://github.com/Guilherme-210/Working-with-SPAs.git"
             target="_blank"
             rel="noopener noreferrer"
           >

@@ -8,7 +8,7 @@ export default function Cart() {
   ).toFixed(2) 
 
   return (
-    <main className={styles.main}>
+    <>
       <div className={styles.container}>
         <h1 className={styles.title}>Carrinho</h1>
         <p className={styles.description}>
@@ -39,6 +39,6 @@ export default function Cart() {
           <button className={styles.button}>Finalizar Compra</button>
         </section>
       </div>
-    </main>
+    </>
   )
 }

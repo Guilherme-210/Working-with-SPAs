@@ -1,9 +1,11 @@
 import styles from "./products.module.css"
 import Products from "../../database.js"
+import { Link } from "react-router-dom"
 
 export default function ProductsPage() {
+
   return (
-    <main className={styles.main}>
+    <>
       <div className={styles.container}>
         <h1 className={styles.title}>Produtos</h1>
         <p className={styles.description}>
@@ -16,9 +18,11 @@ export default function ProductsPage() {
                 <img src={product.image} alt={product.name} />
                 <h4>{product.name}</h4>
                 <span>R$ {product.price.toFixed(2)}</span>
-                <button className={styles.viewDetailsButton}>
-                  Ver Detalhes
-                </button>
+                <Link to={`/products/${product.id}`}>
+                  <button className={styles.viewDetailsButton}>
+                    Ver Detalhes
+                  </button>
+                </Link>
                 <button className={styles.addToCartButton}>
                   Adicionar ao Carrinho
                 </button>
@@ -27,6 +31,6 @@ export default function ProductsPage() {
           </ul>
         </section>
       </div>
-    </main>
+    </>
   )
 }
