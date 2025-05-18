@@ -1,0 +1,106 @@
+.container {
+  background: #141414;
+  padding: 2.5rem 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  width: 100%;
+}
+
+.title {
+  font-size: 2rem;
+  color: #86b2ff;
+  margin-bottom: 0.7rem;
+  font-weight: 700;
+}
+
+.rotesButtons {
+  background: none;
+  color: #bdbdbd;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+
+  text-align: left;
+  border-bottom: solid 1px #fff;
+}
+.rotesButtons button {
+  padding: 16px;
+  margin: 0;
+  background: none;
+  color: #bdbdbd;
+}
+
+.newProductsButton {
+  border-bottom: solid 2px #bdbdbd;
+}
+.newProductsButton:hover,
+.productsButton:hover {
+  padding-bottom: 15px;
+  border-bottom: solid 3px #fff;
+  color: #fff;
+  outline-offset: 2px;
+}
+
+.hr {
+  margin: 0;
+  padding: 0;
+  height: 1px;
+  border-radius: 0;
+  border-color: #bdbdbd;
+}
+
+.divTextarea,
+.divInput {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  gap: 4px;
+}
+
+.divInput label {
+  font-weight: bold;
+  color: #fff;
+}
+
+.divTextarea textarea,
+.divInput input {
+  padding: 10px 12px;
+  border: 1px solid #444;
+  border-radius: 6px;
+  background-color: #1f1f1f;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.divInput input[type="file"] {
+  background-color: #1f1f1f;
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 8px;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+
+.formButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.formButtons button {
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  background-color: #2d3748;
+  color: #fff;
+  transition: background-color 0.2s ease;
+}
+
+.formButtons button:hover {
+  background-color: #1a202c;
+}
