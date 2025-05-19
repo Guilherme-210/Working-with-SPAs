@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom"
 import Home from "./Pages/Home/index.jsx"
 import Product from "./Pages/Product/index.jsx"
+import ProductEdit from "./Pages/ProductEdit/index.jsx"
 import Products from "./Pages/Products/index.jsx"
 import NewProducts from "./Pages/NewProducts/index.jsx"
 import Cart from "./Pages/Cart/index.jsx"
@@ -24,7 +25,13 @@ const router = createBrowserRouter([
       },
       {
         path: "products/:productId",
-        element: <Product />,
+        element: <Product />, 
+        loader: LoadProduct,
+        errorElement: <ProductBoundary />,
+      },
+      {
+        path: "products/edit/:productId",
+        element: <ProductEdit />,
         loader: LoadProduct,
         errorElement: <ProductBoundary />,
       },

@@ -54,6 +54,11 @@
   text-align: left;
 }
 
+.buttons {
+  display: flex;
+  gap: 1rem;
+}
+
 .button {
   padding: 0.4rem 1rem;
   background: #2563eb;

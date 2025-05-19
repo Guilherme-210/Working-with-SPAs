@@ -52,7 +52,6 @@ export function Table({ products }) {
                   <span>
                     <Link to={`/products/${p.id}`}>
                       <button
-                        
                         type="button"
                         className={styles.viewDetailsButton}
                       >
@@ -61,7 +60,7 @@ export function Table({ products }) {
                     </Link>
                   </span>
                   <span>
-                    <Link>
+                    <Link to={`/products/edit/${p.id}`}>
                       <button type="button" className={styles.addToCartButton}>
                         <ion-icon name="pencil-outline"></ion-icon>
                       </button>

@@ -12,11 +12,13 @@
   grid-template-areas:
     "title title"
     "img description"
-    "img buttons";
+    "textarea textarea"
+    "buttons buttons";
 
   align-items: center;
   border-radius: 1rem;
   padding: 1.5rem 1.2rem;
+  gap: 1rem;
 
   transition: transform 0.15s, box-shadow 0.15s;
 
@@ -34,8 +36,8 @@
 
 .image {
   grid-area: img;
-  width: 140px;
-  height: 140px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
   border-radius: 0.8rem;
   margin-bottom: 1rem;
@@ -46,47 +48,81 @@
   transition: transform 0.18s;
 }
 
-.productCard:hover img {
-  transform: scale(1.06) rotate(-2deg);
-}
-
-.contentDescription {
+.contentInput {
   grid-area: description;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.descriptionBox {
+.inputsBox {
   grid-area: description;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
   gap: 1rem;
-  justify-content: space-around;
   align-items: center;
 }
 
-.description {
+.textareaLabel,
+.inputLabel {
   padding: .7rem;
   border-radius: 7px;
   background-color: #2b2a2a;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
-.productCard p {
-  font-size: 1.1rem;
-  color: #d3d4d6;
-  font-weight: 500;
+
+.textareaLabel {
+  grid-area: textarea;
+}
+
+.inputLabel input,
+.textareaLabel textarea {
+  margin-top: 0.5rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 0.5rem;
+  border: 1.5px solid #3b3b3b;
+  background-color: #1a1a1a;
+  color: #e4e4e4; 
+  font-size: 0.95rem;
+  outline: none;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.inputLabel {
+  width: 45%;
+}
+
+.inputLabel input::placeholder,
+.textareaLabel textarea::placeholder {
+  color: #888;
+}
+
+.inputLabel input:focus,
+.textareaLabel textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.4);
+}
+
+#inputPrice {
+  width: 100%;
+} 
+
+.textareaLabel textarea {
+  resize: none;
+  min-height: 60px;
+  max-height: 150px;
+  line-height: 1.4;
 }
 
 .containerButtons {
   grid-area: buttons;
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-
-  gap: 1rem;
 }
 
-.containerButtons button {
+.saveButton {
   padding: 0.6rem 1.2rem;
   border: none;
   border-radius: 0.6rem;
@@ -94,36 +130,15 @@
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s, color 0.2s, transform 0.15s;
-}
-
-.viewDetailsButton {
   background: #fff;
   color: #2563eb;
   border: 1.5px solid #2563eb;
 }
 
-.addToCartButton {
-  background: #2563eb;
-  color: #fff;
-  margin-bottom: 0.2rem;
-}
-
-.containerButtons button:hover,
-.containerButtons button:focus {
+.saveButton:hover,
+.saveButton:focus {
   background: #1e40af;
   color: #fff;
-  outline: none;
-  transform: scale(1.04);
-}
-
-.dellToCartButton {
-  background: #eb2525;
-  color: #fff;
-  margin-bottom: 0.2rem;
-}
-.containerButtons .dellToCartButton:hover,
-.containerButtons .dellToCartButton:focus {
-  background: #680101;
   outline: none;
   transform: scale(1.04);
 }

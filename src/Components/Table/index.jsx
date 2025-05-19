@@ -1,5 +1,6 @@
 import styles from "./Table.module.css"
 import products from "../../database"
+import { Link } from "react-router-dom"
 
 export default function Table() {
   return (
@@ -19,9 +20,19 @@ export default function Table() {
                 <td>{p.name}</td>
                 <td>{p.quantity}</td>
                 <td>
-                  <button type="button" className={styles.button}>
-                    ver
-                  </button>
+                  <div className={styles.buttons}>
+                    <Link to={`/products/${p.id}`}>
+                      <button type="button" className={styles.button}>
+                        ver
+                      </button>
+                    </Link>
+
+                    <Link to={`/products/edit/${p.id}`}>
+                      <button type="button" className={styles.button}>
+                        <ion-icon name="pencil-outline"></ion-icon>
+                      </button>
+                    </Link>
+                  </div>
                 </td>
               </tr>
             ))}
