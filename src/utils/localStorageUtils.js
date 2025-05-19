@@ -11,3 +11,11 @@ export function addProduct(product) {
   const updated = [...products, product]
   saveProducts(updated)
 }
+
+export function deleteProduct(id) {
+  const products = getProducts().filter((p) => p.id !== id)
+  saveProducts(products)
+}
+
+export function updateProduct() {
+}

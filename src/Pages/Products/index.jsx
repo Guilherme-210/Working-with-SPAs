@@ -1,9 +1,22 @@
 import styles from "./products.module.css"
 import stylesTable from "../../Components/Table/Table.module.css"
-import Products from "../../database.js"
 import { Link } from "react-router-dom"
+import { getProducts, deleteProduct } from "../../utils/localStorageUtils.js"
+import { useEffect, useState } from "react"
 
 export default function ProductsPage() {
+  const [products , setProducts] = useState([])
+
+  useEffect(() => {
+    const storedProducts = getProducts()
+    setProducts(storedProducts)
+  })
+
+  const handleDelete = (id) => {
+    deleteProduct(id)
+    setProducts(getProducts()) // Atualiza a lista
+  }
+
   return (
     <>
       <div className={styles.container}>
@@ -20,14 +33,14 @@ export default function ProductsPage() {
         </section>
 
         <section className={styles.productList}>
-          <Table products={Products} />
+          <Table products={products} onDelete={handleDelete} />
         </section>
       </div>
     </>
   )
 }
 
-export function Table({ products }) {
+export function Table({ products, onDelete }) {
   return (
     <>
       <div className={stylesTable.contentTable}>
@@ -67,7 +80,11 @@ export function Table({ products }) {
                     </Link>
                   </span>
                   <span>
-                    <button type="button" className={styles.removeToCartButton}>
+                    <button
+                      type="button"
+                      className={styles.removeToCartButton}
+                      onClick={() => onDelete(p.id)}
+                    >
                       <ion-icon name="trash-bin-outline"></ion-icon>
                     </button>
                   </span>
