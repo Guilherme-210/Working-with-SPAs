@@ -28,6 +28,10 @@ export default function ProductEdit() {
 
   const handleSave = () => {
     if (!product) return
+
+    const today = new Date()
+    const updatedDate = today.toLocaleDateString("pt-br")
+
     updateProduct({
       ...product,
       name: editName,
@@ -35,6 +39,7 @@ export default function ProductEdit() {
       quantity: Number(editQuantity),
       price: Number(editPrice),
       description: editDescription,
+      createdAt: updatedDate,
     })
     navigate("/products")
   }

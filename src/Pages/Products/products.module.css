@@ -88,22 +88,90 @@
   font-weight: 500;
 }
 
-.tdButtons {
-  display: flex;
-  gap: 1rem;
+.contentTable {
+  background: #141414;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  max-height: 400px;
+  overflow: auto;
 }
 
-.removeToCartButton,
-.viewDetailsButton,
-.addToCartButton {
-  padding: 0.6rem 0.8rem;
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  display: block;
+}
+
+.thead {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.thead th {
+  position: sticky;
+  top: 0;
+  background-color: #141414;
+  color: #ffffffcc;
+  padding: 1rem 0.5rem;
+  font-weight: 600;
+  text-align: left;
+  z-index: 1;
+  border-bottom: 1px solid #333;
+}
+
+.tbody {
+  display: block;
+  max-height: 300px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+/* Linhas do corpo com estrutura de tabela */
+.tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* Células */
+.table td {
+  color: #eaeaea;
+  padding: .8rem 0.5rem;
+  border-bottom: 1px solid #222;
+  text-align: left;
+  font-size: 15px;
+}
+
+.tdButtons {
+  display: flex;
+  align-items: center;
+  padding: 0;
+}
+.tdButtons Link,
+.tdButtons span {
+  margin: 0;
+  padding: 0;
+}
+
+.tdButtons button {
+  padding: 0.4rem 0.6rem;
   border: none;
-  border-radius: 0.6rem;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  margin: 0.2rem 0;
   transition: background 0.2s, color 0.2s, transform 0.15s;
+  margin: 0;
+}
+
+.tdButtons span:nth-child(1) button {
+  border-radius: 0.6rem 0 0 0.6rem;
+}
+
+.tdButtons span:nth-child(4) button {
+  border-radius: 0 0.6rem 0.6rem 0;
 }
 
 .viewDetailsButton {
@@ -121,14 +189,14 @@
   transform: scale(1.04);
 }
 
-.addToCartButton {
+.viewToCartButton {
   background: #2563eb;
   color: #fff;
   margin-bottom: 0.2rem;
 }
 
-.addToCartButton:hover,
-.addToCartButton:focus {
+.viewToCartButton:hover,
+.viewToCartButton:focus {
   background: #1e40af;
   outline: none;
   transform: scale(1.04);
@@ -174,9 +242,15 @@
   color: #fff;
 }
 
-.hr {
-  margin: 0;
-  padding: 0;
-  height: 1px;
-  border-radius: 0;
+.addToCartButton {
+  background: #46eb25;
+  color: #fff;
+  margin-bottom: 0.2rem;
+}
+
+.addToCartButton:hover,
+.addToCartButton:focus {
+  background: #1eaf2a;
+  outline: none;
+  transform: scale(1.04);
 }

@@ -1,5 +1,4 @@
 import styles from "./products.module.css"
-import stylesTable from "../../Components/Table/Table.module.css"
 import { Link } from "react-router-dom"
 import { getProducts, deleteProduct } from "../../utils/localStorageUtils.js"
 import { useEffect, useState } from "react"
@@ -50,24 +49,26 @@ export default function ProductsPage() {
 export function Table({ products, onDelete }) {
   return (
     <>
-      <div className={stylesTable.contentTable}>
-        <table className={stylesTable.table}>
-          <thead className={stylesTable.thead}>
+      <div className={styles.contentTable}>
+        <table className={styles.table}>
+          <thead className={styles.thead}>
             <tr>
               <th>Id</th>
               <th>Nome</th>
               <th>Em Estoque</th>
               <th>Categoria</th>
-              <th>Ações</th>
+              <th>modificado</th>
+              <th></th>
             </tr>
           </thead>
-          <tbody className={stylesTable.tbody}>
+          <tbody className={styles.tbody}>
             {products.map((p) => (
               <tr key={p.id}>
                 <td>{p.id}</td>
                 <td>{p.name}</td>
                 <td>{p.quantity}</td>
                 <td>{p.category}</td>
+                <td>{p.createdAt}</td>
                 <td className={styles.tdButtons}>
                   <span>
                     <Link to={`/products/${p.id}`}>
@@ -81,7 +82,7 @@ export function Table({ products, onDelete }) {
                   </span>
                   <span>
                     <Link to={`/products/edit/${p.id}`}>
-                      <button type="button" className={styles.addToCartButton}>
+                      <button type="button" className={styles.viewToCartButton}>
                         <ion-icon name="pencil-outline"></ion-icon>
                       </button>
                     </Link>
@@ -93,6 +94,15 @@ export function Table({ products, onDelete }) {
                       onClick={() => onDelete(p.id)}
                     >
                       <ion-icon name="trash-bin-outline"></ion-icon>
+                    </button>
+                  </span>
+                  <span>
+                    <button
+                      type="button"
+                      className={styles.addToCartButton}
+                      onClick={() => onDelete(p.id)}
+                    >
+                      <ion-icon name="cart-outline"></ion-icon>
                     </button>
                   </span>
                 </td>
