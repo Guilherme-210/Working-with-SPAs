@@ -1,12 +1,3 @@
-.container {
-  background: #141414;
-  padding: 2.5rem 2rem;
-  border-radius: 1.5rem;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-  max-width: 900px;
-  width: 100%;
-}
-
 .productCard {
   display: grid;
   grid-template-areas:
@@ -19,18 +10,20 @@
   border-radius: 1rem;
   padding: 1.5rem 1.2rem;
   gap: 1rem;
-
-  transition: transform 0.15s, box-shadow 0.15s;
-
+  max-width: 900px;
+  
+  transition: transform 0.15s;
+  
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.13);
   background: #1f1f1f;
+  border: 10px solid #141414;
 }
 
 .title {
   grid-area: title;
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   color: #d3d4d6;
-  margin-bottom: 1.2rem;
+  margin-bottom: .8rem;
   font-weight: 600;
 }
 
@@ -48,13 +41,6 @@
   transition: transform 0.18s;
 }
 
-.contentInput {
-  grid-area: description;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
 .inputsBox {
   grid-area: description;
   display: flex;
@@ -67,7 +53,7 @@
 
 .textareaLabel,
 .inputLabel {
-  padding: .7rem;
+  padding: 0.7rem;
   border-radius: 7px;
   background-color: #2b2a2a;
   display: flex;
@@ -86,7 +72,7 @@
   border-radius: 0.5rem;
   border: 1.5px solid #3b3b3b;
   background-color: #1a1a1a;
-  color: #e4e4e4; 
+  color: #e4e4e4;
   font-size: 0.95rem;
   outline: none;
   transition: border 0.2s ease, box-shadow 0.2s ease;
@@ -106,10 +92,6 @@
   border-color: #2563eb;
   box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.4);
 }
-
-#inputPrice {
-  width: 100%;
-} 
 
 .textareaLabel textarea {
   resize: none;
@@ -141,4 +123,72 @@
   color: #fff;
   outline: none;
   transform: scale(1.04);
+}
+
+@media (max-width: 1020px) {
+  .productCard {
+    grid-template-areas:
+      "title"
+      "img"
+      "description"
+      "textarea"
+      "buttons";
+    padding: 1rem;
+  }
+  
+  .title {
+    grid-area: title;
+    font-size: 2rem;
+    color: #d3d4d6;
+    margin-bottom: .8rem;
+    font-weight: 600;
+  }
+
+  .inputsBox {
+    align-items: stretch;
+    max-width: 100%;
+  }
+
+  .inputLabel {
+    width: 45%;
+  }
+
+  .image {
+    width: 100%;
+    height: auto;
+    max-width: 350px;
+    align-self: center;
+    margin: 0 auto 1rem;
+  }
+
+  .containerButtons {
+    display: flex;
+    justify-content: center;
+  }
+
+  .saveButton {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .productCard {
+    grid-template-areas:
+      "title"
+      "img"
+      "description"
+      "textarea"
+      "buttons";
+    padding: 1rem;
+  }
+
+  .inputsBox {
+    align-items: stretch;
+    max-width: 100%;
+  }
+
+  .inputLabel {
+    width: 100%;
+  }
 }

@@ -16,6 +16,3 @@ export function deleteProduct(id) {
   const products = getProducts().filter((p) => p.id !== id)
   saveProducts(products)
 }
-
-export function updateProduct() {
-}
