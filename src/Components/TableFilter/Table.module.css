@@ -54,6 +54,31 @@
   text-align: left;
 }
 
+.filterQuantity {
+  width: 80px;
+  padding: 0.4rem 0.6rem;
+  background: #1f1f1f;
+  color: #eaeaea;
+  border: 1px solid #333;
+  border-radius: 0.6rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  outline: none;
+  transition: border 0.2s ease, background 0.2s ease;
+}
+
+.filterQuantity:focus {
+  border-color: #2563eb;
+  background: #2a2a2a;
+}
+
+.filterQuantity::-webkit-inner-spin-button,
+.filterQuantity::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
 .buttons {
   display: flex;
   gap: 1rem;

@@ -1,16 +1,15 @@
 import styles from "./Table.module.css"
-import products from "../../database"
 import { Link } from "react-router-dom"
 
-export default function Table() {
+export default function Table({ products }) {
   return (
     <>
       <div className={styles.contentTable}>
         <table className={styles.table}>
           <thead className={styles.thead}>
             <tr>
-              <th>Itens acabando</th>
-              <th>Quatidade</th>
+              <th>Produtos disponiveis</th>
+              <th>Quantidade</th>
               <th>Ações</th>
             </tr>
           </thead>

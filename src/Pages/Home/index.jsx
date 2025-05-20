@@ -1,15 +1,21 @@
+import { useEffect, useState } from "react"
 import ContainerItens from "../../Components/ContainerItens"
 import ConteinerLists from "../../Components/ConteinerLists"
 import styles from "./home.module.css"
+import { getProducts } from "../../utils/localStorageUtils"
 
 export default function Home() {
-  return (
-    <>
-      <div className={styles.container}>
-        <ContainerItens />
+  const [products, setProducts] = useState([])
 
-        <ConteinerLists />
-      </div>
-    </>
+  useEffect(() => {
+    const allProducts = getProducts()
+    setProducts(allProducts)
+  }, [])
+
+  return (
+    <div className={styles.container}>
+      <ContainerItens products={products} />
+      <ConteinerLists products={products} />
+    </div>
   )
 }
