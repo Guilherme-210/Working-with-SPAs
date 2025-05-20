@@ -24,13 +24,13 @@ const router = createBrowserRouter([
         element: <Products />,
       },
       {
-        path: "products/:productId",
+        path: "products/:id",
         element: <Product />, 
         loader: LoadProduct,
         errorElement: <ProductBoundary />,
       },
       {
-        path: "products/edit/:productId",
+        path: "products/edit/:id",
         element: <ProductEdit />,
         loader: LoadProduct,
         errorElement: <ProductBoundary />,

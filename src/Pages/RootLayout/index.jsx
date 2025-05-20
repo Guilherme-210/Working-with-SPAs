@@ -11,6 +11,7 @@ export default function RootLayout() {
           { name: "Home", path: "/" },
           { name: "Produtos", path: "/products" },
           { name: "Carrinho", path: "/cart" },
+          { name: "Cadastrar produto", path: "/newProducts" },
           { name: "Admin", path: "/admin" },
         ]}
       />

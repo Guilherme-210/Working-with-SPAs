@@ -1,14 +1,43 @@
-import { useLoaderData } from "react-router-dom"
+import { useState, useEffect } from "react"
+import { useParams, useNavigate } from "react-router-dom"
+import { getProducts, updateProduct } from "../../utils/localStorageUtils"
 import styles from "./product.module.css"
-import { useState } from "react"
 
 export default function ProductEdit() {
-  const product = useLoaderData()
-  const [editCategory, setEditCategory] = useState(product.category)
-  const [editQuantity, setEditQuantity] = useState(product.quantity)
-  const [editPrice, setEditPrice] = useState(product.price.toFixed(2))
-  const [editDescription, setEditDescription] = useState(product.description)
-  const [editName, setEditName] = useState(product.name)
+  const { productId } = useParams()
+  const navigate = useNavigate()
+  const [product, setProduct] = useState(null)
+  const [editName, setEditName] = useState("")
+  const [editCategory, setEditCategory] = useState("")
+  const [editQuantity, setEditQuantity] = useState(0)
+  const [editPrice, setEditPrice] = useState(0)
+  const [editDescription, setEditDescription] = useState("")
+
+  useEffect(() => {
+    const products = getProducts()
+    const found = products.find((p) => String(p.id) === String(productId))
+    if (found) {
+      setProduct(found)
+      setEditName(found.name)
+      setEditCategory(found.category)
+      setEditQuantity(found.quantity)
+      setEditPrice(found.price)
+      setEditDescription(found.description)
+    }
+  }, [productId])
+
+  const handleSave = () => {
+    if (!product) return
+    updateProduct({
+      ...product,
+      name: editName,
+      category: editCategory,
+      quantity: Number(editQuantity),
+      price: Number(editPrice),
+      description: editDescription,
+    })
+    navigate("/products")
+  }
 
   return (
     <>
@@ -74,8 +103,11 @@ export default function ProductEdit() {
             onChange={(e) => setEditDescription(e.target.value)}
           ></textarea>
         </div>
+
         <div className={styles.containerButtons}>
-          <button className={styles.saveButton}>Salvar</button>
+          <button className={styles.saveButton} onClick={handleSave}>
+            Salvar
+          </button>
         </div>
       </section>
     </>

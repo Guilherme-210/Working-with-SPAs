@@ -10,11 +10,14 @@ export default function ProductsPage() {
   useEffect(() => {
     const storedProducts = getProducts()
     setProducts(storedProducts)
-  })
+  }, [])
 
   const handleDelete = (id) => {
-    deleteProduct(id)
-    setProducts(getProducts()) // Atualiza a lista
+    const confirmDelete = window.confirm("Tem certeza que quer deletar?")
+    if (confirmDelete) {
+      deleteProduct(id)
+      setProducts(getProducts())
+    }
   }
 
   return (
@@ -33,7 +36,11 @@ export default function ProductsPage() {
         </section>
 
         <section className={styles.productList}>
-          <Table products={products} onDelete={handleDelete} />
+          {products.length === 0 ? (
+            <p className={styles.emptyMessage}>Nenhum produto cadastrado 😕</p>
+          ) : (
+            <Table products={products} onDelete={handleDelete} />
+          )}
         </section>
       </div>
     </>
