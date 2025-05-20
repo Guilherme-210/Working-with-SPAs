@@ -10,7 +10,7 @@ export default function Header({ Rotas, Title }) {
           {Rotas.map((Rota, index) => (
             <li key={index}>
               <Link className={styles.NavPages} to={Rota.path}>
-                {Rota.name}
+                {Rota.name} 
               </Link>
             </li>
           ))}
