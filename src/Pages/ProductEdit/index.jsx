@@ -4,7 +4,7 @@ import { getProducts, updateProduct } from "../../utils/localStorageUtils"
 import styles from "./product.module.css"
 
 export default function ProductEdit() {
-  const { productId } = useParams()
+  const { id } = useParams()
   const navigate = useNavigate()
   const [product, setProduct] = useState(null)
   const [editName, setEditName] = useState("")
@@ -15,7 +15,7 @@ export default function ProductEdit() {
 
   useEffect(() => {
     const products = getProducts()
-    const found = products.find((p) => String(p.id) === String(productId))
+    const found = products.find((p) => String(p.id) === String(id))
     if (found) {
       setProduct(found)
       setEditName(found.name)
@@ -24,7 +24,7 @@ export default function ProductEdit() {
       setEditPrice(found.price)
       setEditDescription(found.description)
     }
-  }, [productId])
+  }, [id])
 
   const handleSave = () => {
     if (!product) return
@@ -38,6 +38,8 @@ export default function ProductEdit() {
     })
     navigate("/products")
   }
+
+  if (!product) return <p>Carregando produto...</p>
 
   return (
     <>
