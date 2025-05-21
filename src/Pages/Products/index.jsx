@@ -1,10 +1,14 @@
 import styles from "./products.module.css"
 import { Link } from "react-router-dom"
-import { getProducts, deleteProduct } from "../../utils/localStorageUtils.js"
+import {
+  getProducts,
+  deleteProduct,
+  addToCart,
+} from "../../utils/localStorageUtils.js"
 import { useEffect, useState } from "react"
 
 export default function ProductsPage() {
-  const [products , setProducts] = useState([])
+  const [products, setProducts] = useState([])
 
   useEffect(() => {
     const storedProducts = getProducts()
@@ -38,7 +42,14 @@ export default function ProductsPage() {
           {products.length === 0 ? (
             <p className={styles.emptyMessage}>Nenhum produto cadastrado 😕</p>
           ) : (
-            <Table products={products} onDelete={handleDelete} />
+            <Table
+              products={products}
+              onDelete={handleDelete}
+              onBuy={(product) => {
+                addToCart(product)
+                // alert(`🛒 ${product.name} foi adicionado ao carrinho!`)
+              }}
+            />
           )}
         </section>
       </div>
@@ -46,7 +57,7 @@ export default function ProductsPage() {
   )
 }
 
-export function Table({ products, onDelete }) {
+export function Table({ products, onDelete, onBuy }) {
   return (
     <>
       <div className={styles.contentTable}>
@@ -100,7 +111,7 @@ export function Table({ products, onDelete }) {
                     <button
                       type="button"
                       className={styles.addToCartButton}
-                      onClick={() => onDelete(p.id)}
+                      onClick={() => onBuy(p)}
                     >
                       <ion-icon name="cart-outline"></ion-icon>
                     </button>

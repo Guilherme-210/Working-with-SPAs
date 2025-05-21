@@ -1,13 +1,13 @@
-import Wonders from "./assets/products/Wonders.jpg"
-import SenhorDosAnéis from "./assets/products/SenhorDosAnéis.jpeg"
-import Catan from "./assets/products/Catan.jpeg"
-import Dixit from "./assets/products/Dixit.jpeg"
-import Uno from "./assets/products/Uno.jpeg"
-import TicketToRide from "./assets/products/TicketToRide.jpeg"
-import Carcassonne from "./assets/products/Carcassonne.jpeg"
-import ExplodingKittens from "./assets/products/ExplodingKittens.jpeg"
-import TerraformingMars from "./assets/products/TerraformingMars.jpeg"
-import Dominion from "./assets/products/Dominion.jpeg"
+import Wonders from "../assets/products/Wonders.jpg"
+import SenhorDosAnéis from "../assets/products/SenhorDosAnéis.jpeg"
+import Catan from "../assets/products/Catan.jpeg"
+import Dixit from "../assets/products/Dixit.jpeg"
+import Uno from "../assets/products/Uno.jpeg"
+import TicketToRide from "../assets/products/TicketToRide.jpeg"
+import Carcassonne from "../assets/products/Carcassonne.jpeg"
+import ExplodingKittens from "../assets/products/ExplodingKittens.jpeg"
+import TerraformingMars from "../assets/products/TerraformingMars.jpeg"
+import Dominion from "../assets/products/Dominion.jpeg"
 
 const products = [
   {
