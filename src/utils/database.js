@@ -9,6 +9,8 @@ import ExplodingKittens from "../assets/products/ExplodingKittens.jpeg"
 import TerraformingMars from "../assets/products/TerraformingMars.jpeg"
 import Dominion from "../assets/products/Dominion.jpeg"
 
+const lastUpdated = "19/05/2025"
+
 const products = [
   {
     id: 1,
@@ -19,6 +21,7 @@ const products = [
     description:
       "Um jogo de estratégia onde você lidera uma civilização antiga rumo à glória.",
     image: Wonders,
+    createdAt: lastUpdated,
   },
   {
     id: 2,
@@ -29,6 +32,7 @@ const products = [
     description:
       "Jogo cooperativo de cartas baseado no universo de Tolkien. Prepare-se para a aventura!",
     image: SenhorDosAnéis,
+    createdAt: lastUpdated,
   },
   {
     id: 3,
@@ -39,6 +43,7 @@ const products = [
     description:
       "Conquiste territórios, negocie recursos e domine a ilha de Catan.",
     image: Catan,
+    createdAt: lastUpdated,
   },
   {
     id: 4,
@@ -49,6 +54,7 @@ const products = [
     description:
       "Use sua imaginação para interpretar imagens oníricas e vencer com criatividade.",
     image: Dixit,
+    createdAt: lastUpdated,
   },
   {
     id: 5,
@@ -58,6 +64,7 @@ const products = [
     quantity: 20,
     description: "O clássico jogo de cartas que destrói amizades em segundos.",
     image: Uno,
+    createdAt: lastUpdated,
   },
   {
     id: 6,
@@ -68,6 +75,7 @@ const products = [
     description:
       "Construa rotas ferroviárias e domine o mapa com suas estratégias logísticas.",
     image: TicketToRide,
+    createdAt: lastUpdated,
   },
   {
     id: 7,
@@ -78,6 +86,7 @@ const products = [
     description:
       "Coloque peças, conquiste territórios e controle a cidade medieval de Carcassonne.",
     image: Carcassonne,
+    createdAt: lastUpdated,
   },
   {
     id: 8,
@@ -88,6 +97,7 @@ const products = [
     description:
       "Jogo de cartas caótico com gatinhos explosivos e muita zoeira.",
     image: ExplodingKittens,
+    createdAt: lastUpdated,
   },
   {
     id: 9,
@@ -98,6 +108,7 @@ const products = [
     description:
       "Gerencie corporações e transforme Marte num novo lar para a humanidade.",
     image: TerraformingMars,
+    createdAt: lastUpdated,
   },
   {
     id: 10,
@@ -108,6 +119,7 @@ const products = [
     description:
       "Crie o baralho perfeito em um jogo de construção de deck inovador e estratégico.",
     image: Dominion,
+    createdAt: lastUpdated,
   },
 ]
 
