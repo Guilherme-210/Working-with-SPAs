@@ -63,6 +63,10 @@ export default function ProductsPage() {
         <ProductModal
           product={selectProduct}
           onClose={() => setSelectProduct(null)}
+          onProductDeleted={() => {
+            setProducts(getProducts())
+            setSelectProduct(null)
+          }}
         />
       )}
     </>
@@ -137,7 +141,7 @@ export function Table({ products, onDelete, onBuy, onView }) {
   )
 }
 
-export function ProductModal({ product, onClose }) {
+export function ProductModal({ product, onClose, onProductDeleted }) {
   if (!product) return null
 
   const handleDelete = () => {
@@ -146,8 +150,7 @@ export function ProductModal({ product, onClose }) {
     )
     if (confirmDelete) {
       deleteProduct(product.id)
-      onClose()
-      window.location.reload(ProductsPage)
+      onProductDeleted()
     }
   }
 
