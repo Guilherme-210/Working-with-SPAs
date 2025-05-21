@@ -51,3 +51,13 @@ export function removeFromCart(productId) {
   const cart = getCartItems().filter((item) => item.id !== productId)
   setCartItems(cart)
 }
+
+// reseta a lista de produtos
+import productsFromFile from "./database.js"
+
+export function resetProducts() {
+  localStorage.setItem("products", JSON.stringify(productsFromFile))
+  console.log("Produtos resetados com sucesso! ✅")
+}
+
+window.resetProducts = resetProducts
