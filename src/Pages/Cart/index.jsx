@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 
 export default function Cart() {
   const [cartItems, setCartItems] = useState([])
+  const [removedMsg, setRemovedMsg] = useState("")
 
   useEffect(() => {
     setCartItems(getCartItems())
@@ -12,6 +13,8 @@ export default function Cart() {
   const handleRemove = (id) => {
     removeFromCart(id)
     setCartItems(getCartItems())
+    setRemovedMsg("Produto removido do carrinho!")
+    setTimeout(() => setRemovedMsg(""), 1500)
   }
 
   // Agrupando os produtos iguais (por nome e preço)
@@ -26,11 +29,16 @@ export default function Cart() {
   }, {})
 
   const groupedList = Object.values(groupedItems)
-
-  // Preço total somado de todos os produtos
-  const totalPrice = groupedList.reduce((acc, item) => {
-    return acc + Number(item.price) * item.quantity
-  }, 0)
+  const totalPrice = groupedList.reduce(
+    (acc, item) => acc + Number(item.price) * item.quantity,
+    0
+  )
+  
+  const formatCurrency = (value) =>
+    new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(value)
 
   return (
     <div className={styles.container}>
@@ -38,6 +46,9 @@ export default function Cart() {
       <p className={styles.description}>
         Aqui você pode revisar os produtos que adicionou ao carrinho.
       </p>
+      <div>
+        {removedMsg && <p className={styles.removedMsg}>{removedMsg}</p>}
+      </div>
       <section>
         {groupedList.length === 0 ? (
           <p className={styles.description}>Seu carrinho está vazio 🛒</p>
@@ -57,15 +68,16 @@ export default function Cart() {
                   <h4>{item.name}</h4>
                   <span>
                     <p>Quantidade: {item.quantity}</p>
-                    <p>Preço unitário: R$ {Number(item.price).toFixed(2)}</p>
+                    <p>Preço unitário: R$ {formatCurrency(item.price)}</p>
                     <p>
-                      Total: R${" "}
-                      {(Number(item.price) * item.quantity).toFixed(2)}
+                      Total:{" "}
+                      {formatCurrency(Number(item.price) * item.quantity)}
                     </p>
                   </span>
                   <button
                     className={styles.removeButton}
                     onClick={() => handleRemove(item.id)}
+                    aria-label={`Remover ${item.name} do carrinho`}
                   >
                     Remover
                   </button>
@@ -77,9 +89,15 @@ export default function Cart() {
       </section>
       <section>
         <div className={styles.total}>
-          <h2>Total: R$ {totalPrice.toFixed(2)}</h2>
+          <h2>Total: {formatCurrency(totalPrice)}</h2>
         </div>
-        <button className={styles.button}>Finalizar Compra</button>
+        <button
+          className={styles.button}
+          disabled={groupedList.length === 0}
+          aria-disabled={groupedList.length === 0}
+        >
+          Finalizar Compra
+        </button>
       </section>
     </div>
   )

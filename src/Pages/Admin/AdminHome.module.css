@@ -1,48 +1,85 @@
 .container {
+  background: #141414;
+  padding: 2.5rem 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  max-width: 500px;
+  margin: 2rem auto;
   text-align: center;
-  padding: 2rem;
-  max-width: 1000px;
-  margin: auto;
 }
 
 .title {
-  font-size: 2.5rem;
-  color: #222;
-  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #eaeaea;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
 .description {
-  font-size: 1.2rem;
-  color: #666;
+  font-size: 1.1rem;
+  color: #bdbdbd;
   margin-bottom: 2rem;
+  line-height: 1.6;
 }
 
 .cardContainer {
   display: flex;
   gap: 1.5rem;
   justify-content: center;
+  margin-top: 2rem;
   flex-wrap: wrap;
 }
 
 .card {
-  background-color: #f4f4f4;
+  background: #d3d4d6;
   border-radius: 1rem;
-  padding: 2rem;
-  width: 220px;
-  text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+  padding: 1.5rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 140px;
+  min-height: 120px;
   text-decoration: none;
-  color: #333;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #1e293b;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.2s, color 0.2s;
+  cursor: pointer;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+.card:hover,
+.card:focus {
+  background: #2563eb;
+  color: #fff;
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 6px 24px rgba(37,99,235,0.10);
 }
 
 .icon {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #007bff;
+  font-size: 2.2rem;
+  margin-bottom: 0.7rem;
+  color: #2563eb;
+  transition: color 0.2s;
+}
+
+.card:hover .icon,
+.card:focus .icon {
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 1.2rem 0.5rem;
+  }
+  .cardContainer {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  .card {
+    width: 100%;
+    min-width: unset;
+  }
 }
