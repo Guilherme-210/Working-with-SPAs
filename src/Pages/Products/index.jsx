@@ -9,6 +9,11 @@ import { useEffect, useState } from "react"
 
 export default function ProductsPage() {
   const [products, setProducts] = useState([])
+  const [selectProduct, setSelectProduct] = useState(null)
+
+  const handleViewProduct = (product) => {
+    setSelectProduct(product)
+  }
 
   useEffect(() => {
     const storedProducts = getProducts()
@@ -49,15 +54,22 @@ export default function ProductsPage() {
                 addToCart(product)
                 // alert(`🛒 ${product.name} foi adicionado ao carrinho!`)
               }}
+              onView={handleViewProduct}
             />
           )}
         </section>
       </div>
+      {selectProduct && (
+        <ProductModal
+          product={selectProduct}
+          onClose={() => setSelectProduct(null)}
+        />
+      )}
     </>
   )
 }
 
-export function Table({ products, onDelete, onBuy }) {
+export function Table({ products, onDelete, onBuy, onView }) {
   return (
     <>
       <div className={styles.contentTable}>
@@ -82,14 +94,13 @@ export function Table({ products, onDelete, onBuy }) {
                 <td>{p.createdAt}</td>
                 <td className={styles.tdButtons}>
                   <span>
-                    <Link to={`/products/${p.id}`}>
-                      <button
-                        type="button"
-                        className={styles.viewDetailsButton}
-                      >
-                        Ver
-                      </button>
-                    </Link>
+                    <button
+                      type="button"
+                      className={styles.viewDetailsButton}
+                      onClick={() => onView(p)}
+                    >
+                      Ver
+                    </button>
                   </span>
                   <span>
                     <Link to={`/products/edit/${p.id}`}>
@@ -121,6 +132,82 @@ export function Table({ products, onDelete, onBuy }) {
             ))}
           </tbody>
         </table>
+      </div>
+    </>
+  )
+}
+
+export function ProductModal({ product, onClose }) {
+  if (!product) return null
+
+  const handleDelete = () => {
+    const confirmDelete = window.confirm(
+      "Tem certeza que deseja excluir este produto?"
+    )
+    if (confirmDelete) {
+      deleteProduct(product.id)
+      onClose()
+      window.location.reload(ProductsPage)
+    }
+  }
+
+  const handleBuy = () => {
+    addToCart(product)
+    alert("Produto adicionado ao carrinho! 🛒")
+  }
+
+  return (
+    <>
+      <div className={styles.modalBackdrop}>
+        <div className={styles.containerModal}>
+          <button className={styles.closeModalButton} onClick={() => onClose()}>
+            &times;
+          </button>
+          <section className={styles.productCardModal}>
+            <h2 className={styles.titleModal}>{product.name}</h2>
+
+            <img
+              className={styles.imageModal}
+              src={product.image}
+              alt={product.name}
+            />
+
+            <div className={styles.contentDescriptionModal}>
+              <div className={styles.descriptionBoxModal}>
+                <div className={styles.descriptionModal}>
+                  <p>Categoria: {product.category}</p>
+                </div>
+                <div className={styles.descriptionModal}>
+                  <p>Quantidade em estoque: {product.quantity}</p>
+                </div>
+                <div className={styles.descriptionModal}>
+                  <p className={styles.priceModal}>
+                    Preço: R$ {product.price.toFixed(2)}
+                  </p>
+                </div>
+              </div>
+              <p>{product.description}</p>
+            </div>
+
+            <div className={styles.containerButtonsModal}>
+              <Link to={`/products/edit/${product.id}`}>
+                <button className={styles.addToCartButtonModal}>Editar</button>
+              </Link>
+              <button
+                className={styles.addToCartButtonModal}
+                onClick={handleBuy}
+              >
+                Comprar
+              </button>
+              <button
+                className={styles.dellToCartButtonModal}
+                onClick={handleDelete}
+              >
+                Excluir
+              </button>
+            </div>
+          </section>
+        </div>
       </div>
     </>
   )
