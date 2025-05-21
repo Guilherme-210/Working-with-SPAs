@@ -14,7 +14,23 @@ export default function Cart() {
     setCartItems(getCartItems())
   }
 
-  const totalPrice = cartItems.reduce((acc, item) => acc + Number(item.price), 0)
+  // Agrupando os produtos iguais (por nome e preço)
+  const groupedItems = cartItems.reduce((acc, item) => {
+    const key = `${item.name}-${item.price}`
+    if (!acc[key]) {
+      acc[key] = { ...item, quantity: 1 }
+    } else {
+      acc[key].quantity += 1
+    }
+    return acc
+  }, {})
+
+  const groupedList = Object.values(groupedItems)
+
+  // Preço total somado de todos os produtos
+  const totalPrice = groupedList.reduce((acc, item) => {
+    return acc + Number(item.price) * item.quantity
+  }, 0)
 
   return (
     <div className={styles.container}>
@@ -23,12 +39,15 @@ export default function Cart() {
         Aqui você pode revisar os produtos que adicionou ao carrinho.
       </p>
       <section>
-        {cartItems.length === 0 ? (
+        {groupedList.length === 0 ? (
           <p className={styles.description}>Seu carrinho está vazio 🛒</p>
         ) : (
           <ul className={styles.productList}>
-            {cartItems.map((item) => (
-              <li key={item.id} className={styles.productCard}>
+            {groupedList.map((item) => (
+              <li
+                key={`${item.name}-${item.price}`}
+                className={styles.productCard}
+              >
                 <img
                   src={item.image}
                   alt={item.name}
@@ -36,7 +55,14 @@ export default function Cart() {
                 />
                 <div className={styles.productData}>
                   <h4>{item.name}</h4>
-                  <span>R$ {Number(item.price).toFixed(2)}</span>
+                  <span>
+                    <p>Quantidade: {item.quantity}</p>
+                    <p>Preço unitário: R$ {Number(item.price).toFixed(2)}</p>
+                    <p>
+                      Total: R${" "}
+                      {(Number(item.price) * item.quantity).toFixed(2)}
+                    </p>
+                  </span>
                   <button
                     className={styles.removeButton}
                     onClick={() => handleRemove(item.id)}
