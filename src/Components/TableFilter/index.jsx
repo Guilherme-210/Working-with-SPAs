@@ -3,7 +3,7 @@ import styles from "./Table.module.css"
 import { Link } from "react-router-dom"
 
 export default function TableFilter({ products, onBuy }) {
-  const [filterQuantity, setFilterQuantity] = useState(0)
+  const [filterQuantity, setFilterQuantity] = useState(7)
 
   const filteredProducts = products.filter((p) => {
     const quantityNumber = Number(filterQuantity)
