@@ -2,8 +2,7 @@ import { useState } from "react"
 import styles from "./Table.module.css"
 import { Link } from "react-router-dom"
 
-
-export default function TableFilter({ products }) {
+export default function TableFilter({ products, onBuy }) {
   const [filterQuantity, setFilterQuantity] = useState(0)
 
   const filteredProducts = products.filter((p) => {
@@ -63,6 +62,13 @@ export default function TableFilter({ products }) {
                           <ion-icon name="pencil-outline"></ion-icon>
                         </button>
                       </Link>
+                      <button
+                        type="button"
+                        className={styles.addToCartButton}
+                        onClick={() => onBuy(p)}
+                      >
+                        <ion-icon name="cart-outline"></ion-icon>
+                      </button>
                     </div>
                   </td>
                 </tr>

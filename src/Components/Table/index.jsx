@@ -1,7 +1,7 @@
 import styles from "./Table.module.css"
 import { Link } from "react-router-dom"
 
-export default function Table({ products }) {
+export default function Table({ products, onBuy }) {
   return (
     <>
       <div className={styles.contentTable}>
@@ -31,6 +31,13 @@ export default function Table({ products }) {
                         <ion-icon name="pencil-outline"></ion-icon>
                       </button>
                     </Link>
+                    <button
+                      type="button"
+                      className={styles.addToCartButton}
+                      onClick={() => onBuy(p)}
+                    >
+                      <ion-icon name="cart-outline"></ion-icon>
+                    </button>
                   </div>
                 </td>
               </tr>
